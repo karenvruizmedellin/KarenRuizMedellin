@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karen Vanessa Ruiz Medellín - Psychologist</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
@@ -50,6 +51,9 @@
 
         header #branding h1 {
             margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
         }
 
         header nav {
@@ -154,11 +158,26 @@
             header #branding,
             header nav,
             header nav li,
+            body {
+                font-family: 'Montserrat', 'Open Sans', sans-serif;
+                margin: 0;
+                padding: 0;
+                background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+                color: #222;
+                line-height: 1.7;
+            }
             #newsletter h1,
             #newsletter form,
             .box {
                 float: none;
                 text-align: center;
+                max-width: 900px;
+                margin: 30px auto;
+                overflow: hidden;
+                padding: 30px 20px;
+                background: rgba(255,255,255,0.95);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
                 width: 100%;
             }
 
@@ -167,6 +186,12 @@
             }
 
             #showcase h1 {
+                background: linear-gradient(90deg, #355C7D 0%, #6C5B7B 100%);
+                color: white;
+                padding-top: 36px;
+                min-height: 80px;
+                border-bottom: #6C5B7B 3px solid;
+                box-shadow: 0px 4px 12px rgba(44, 62, 80, 0.08);
                 margin-top: 40px;
             }
 
@@ -177,21 +202,39 @@
 
             #newsletter form input[type="email"] {
                 width: 100%;
+                min-height: 340px;
+                background: linear-gradient(120deg, #6C5B7D 0%, #355C7D 100%);
+                text-align: center;
+                color: #ffffff;
+                padding: 60px 0 40px 0;
+                border-radius: 16px;
+                box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
                 margin-bottom: 5px;
             }
         }
 
         footer {
             padding: 20px;
+                margin-top: 30px;
+                font-size: 2.8rem;
+                margin-bottom: 16px;
+                text-shadow: 2px 2px 8px rgba(44, 62, 80, 0.18);
             margin-top: 20px;
             color: #ffffff;
             background-color: #1E3D59;
             text-align: center;
+                font-size: 1.3rem;
+                text-shadow: 1px 1px 4px rgba(44, 62, 80, 0.12);
         }
     </style>
 </head>
 <body>
     <header>
+                padding: 18px;
+                color: #ffffff;
+                background: linear-gradient(90deg, #355C7D 0%, #6C5B7D 100%);
+                border-radius: 12px;
+                box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
         <div class="container">
             <div id="branding">
                 <h1>Karen Vanessa Ruiz Medellín</h1>
@@ -199,6 +242,12 @@
             <nav>
                 <ul>
                     <li class="current"><a href="index.html">Home</a></li>
+                padding: 8px;
+                height: 32px;
+                width: 260px;
+                border-radius: 8px;
+                border: none;
+                font-size: 1rem;
                     <li><a href="#about">About</a></li>
                     <li><a href="#cv">CV</a></li>
                 </ul>
@@ -210,15 +259,34 @@
         <div class="container">
             <h1>Welcome!</h1>
             <p>Colombian Psychologist with experience in education and clinical fields.</p>
+                height: 40px;
+                background: linear-gradient(90deg, #6C5B7D 0%, #355C7D 100%);
+                border: none;
+                padding: 10px 28px;
+                color: #fff;
+                border-radius: 8px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+                transition: background 0.3s ease;
         </div>
     </section>
 
+                background: linear-gradient(90deg, #355C7D 0%, #6C5B7D 100%);
     <section id="newsletter">
         <div class="container">
             <h1>Subscribe to my Newsletter</h1>
+                background-color: #fff;
+                border-radius: 16px;
+                box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
             <form>
                 <input type="email" placeholder="Enter Email...">
                 <button type="submit" class="button_1">Subscribe</button>
+                background-color: #f4f4f4;
+                border-radius: 16px;
+                box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
             </form>
         </div>
     </section>
@@ -226,19 +294,33 @@
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
+                margin-top: 20px;
+                padding: 18px;
+                background-color: #fff;
+                border-radius: 12px;
+                box-shadow: 0px 2px 12px rgba(44, 62, 80, 0.10);
             <img src="assets/profile_image.jpg" alt="Profile Image" style="width: 150px; border-radius: 50%; float: left; margin-right: 20px;">
             <i class="material-icons">face</i>
             <p>
+                font-family: 'Montserrat', sans-serif;
                 Karen Vanessa Ruiz Medellín is a Colombian Psychologist with professional experience in the educational and clinical fields, particularly in teaching and supporting children, adolescents, and their families. She stands out for her creativity, empathy, adaptability, and ability to foster inclusion and holistic development.
             </p>
         </div>
     </section>
+                <img src="assets/profile_image.jpg" alt="Profile Image" style="width: 150px; border-radius: 50%; box-shadow: 0 2px 12px rgba(44,62,80,0.12); float: left; margin-right: 24px; margin-bottom: 12px;">
+                <i class="material-icons" style="font-size: 2.2rem; color: #355C7D; vertical-align: middle; margin-right: 8px;">face</i>
 
     <section id="cv">
         <div class="container">
             <h2>Curriculum Vitae</h2>
             <h3>Academic Background</h3>
             <ul>
+                padding: 24px;
+                margin-top: 32px;
+                color: #ffffff;
+                background: linear-gradient(90deg, #355C7D 0%, #6C5B7D 100%);
+                text-align: center;
+                border-radius: 0 0 16px 16px;
                 <li>Master’s in Educational and Psychological Intervention – University of Navarra, Spain (2024 – present)</li>
                 <li>Course in Good Teaching Practices – Universidad Internacional de la Rioja (2024)</li>
                 <li>Diploma in Universal Design for Learning (DUA) – Universidad de La Sabana (2021)</li>
