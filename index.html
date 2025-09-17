@@ -4,373 +4,1150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karen Vanessa Ruiz Medellín - Psychologist</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f7fafc;
+            --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn.active {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            transform: translateY(-100%);
+            animation: slideDown 1s ease forwards;
+        }
+
+        @keyframes slideDown {
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23fff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23fff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .section-title.animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .profile-card.animate {
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-1);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: var(--gradient-3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .about-text.animate {
+            animation: slideInRight 0.8s ease forwards;
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* Skills */
+        .skills {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .skill-tag {
+            padding: 8px 16px;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0;
+            transform: scale(0);
+            animation: popIn 0.5s ease forwards;
+        }
+
+        .skill-tag:nth-child(1) { animation-delay: 0.1s; }
+        .skill-tag:nth-child(2) { animation-delay: 0.2s; }
+        .skill-tag:nth-child(3) { animation-delay: 0.3s; }
+        .skill-tag:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes popIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* CV Section */
+        .cv {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-1);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .timeline-item.animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            box-shadow: 0 0 0 4px white, 0 0 0 8px var(--primary-color);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .timeline-date {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 10px 0;
+            color: var(--text-dark);
+        }
+
+        .timeline-desc {
+            color: var(--text-light);
             line-height: 1.6;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-        }
-        header {
-            background: linear-gradient(to right, #3498db, #2980b9); /* Modern blue gradient */
+
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            background: var(--gradient-2);
             color: white;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #2980b9 3px solid;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        header a {
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-        header ul {
-            padding: 0;
-            margin: 0;
-        }
-        header li {
-            float: left;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-
-        header #branding {
-            float: left;
-        }
-
-        header #branding h1 {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
-            letter-spacing: 1px;
-        }
-
-        header nav {
-            float: right;
-            margin-top: 10px;
-        }
-
-        header .highlight, header .current a {
-            color: #f39c12;
-            font-weight: bold;
-        }
-
-        header a:hover {
-            color: #f39c12;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        #showcase {
-            min-height: 400px;
-            background: url('background.jpg') no-repeat center center/cover;
-            text-align: center;
-            color: #ffffff;
-            padding: 50px 0;
-        }
-
-        #showcase h1 {
-            margin-top: 50px;
-            font-size: 55px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        #showcase p {
-            font-size: 20px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        #newsletter {
-            padding: 15px;
-            color: #ffffff;
-            background: #355C7D;
-        }
-
-        #newsletter h1 {
-            float: left;
-        }
-
-        #newsletter form {
-            float: right;
-            margin-top: 15px;
-        }
-
-        #newsletter input[type="email"] {
-            padding: 4px;
-            height: 25px;
-            width: 250px;
-            border-radius: 5px;
-            border: none;
-        }
-
-        .button_1{
-            height: 40px; /* Slightly taller */
-            background: #3498db; /* A more modern button color */
-            border: none;
-            padding: 10px 20px; /* Adjust padding for better spacing */
-            color: #fff;
-            border-radius: 5px;
-            font-size: 16px; /* Slightly larger font size */
-            cursor: pointer; /* Indicate it's clickable */
-            transition: background-color 0.3s ease; /* Smooth transition */
-        }
-        .button_1:hover {
-            background-color: #2980b9; /* Darker shade on hover */
-        }
-
-        section {
-            padding: 20px;
-        }
-
-        #about {
-            background-color: #fff;
-        }
-
-        #cv {
-            background-color: #f4f4f4;
-        }
-
-        .box {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .box h3 {
             text-align: center;
         }
 
-        @media(max-width: 768px) {
-            header #branding,
-            header nav,
-            header nav li,
-            body {
-                font-family: 'Montserrat', 'Open Sans', sans-serif;
-                margin: 0;
-                padding: 0;
-                background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-                color: #222;
-                line-height: 1.7;
-            }
-            #newsletter h1,
-            #newsletter form,
-            .box {
-                float: none;
-                text-align: center;
-                max-width: 900px;
-                margin: 30px auto;
-                overflow: hidden;
-                padding: 30px 20px;
-                background: rgba(255,255,255,0.95);
-                border-radius: 16px;
-                box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
-                width: 100%;
-            }
-
-            header {
-                padding-bottom: 50px;
-            }
-
-            #showcase h1 {
-                background: linear-gradient(90deg, #355C7D 0%, #6C5B7B 100%);
-                color: white;
-                padding-top: 36px;
-                min-height: 80px;
-                border-bottom: #6C5B7B 3px solid;
-                box-shadow: 0px 4px 12px rgba(44, 62, 80, 0.08);
-                margin-top: 40px;
-            }
-
-            #newsletter button {
-                display: block;
-                width: 100%;
-            }
-
-            #newsletter form input[type="email"] {
-                width: 100%;
-                min-height: 340px;
-                background: linear-gradient(120deg, #6C5B7D 0%, #355C7D 100%);
-                text-align: center;
-                color: #ffffff;
-                padding: 60px 0 40px 0;
-                border-radius: 16px;
-                box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
-                margin-bottom: 5px;
-            }
+        .newsletter-form {
+            max-width: 500px;
+            margin: 40px auto 0;
+            display: flex;
+            gap: 15px;
         }
 
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            padding: 15px 30px;
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
         footer {
-            padding: 20px;
-                margin-top: 30px;
-                font-size: 2.8rem;
-                margin-bottom: 16px;
-                text-shadow: 2px 2px 8px rgba(44, 62, 80, 0.18);
-            margin-top: 20px;
-            color: #ffffff;
-            background-color: #1E3D59;
+            background: var(--text-dark);
+            color: white;
             text-align: center;
-                font-size: 1.3rem;
-                text-shadow: 1px 1px 4px rgba(44, 62, 80, 0.12);
+            padding: 40px 0;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            line-height: 50px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 15px;
+            }
+            
+            nav ul {
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .timeline::before {
+                left: 15px;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+            }
+            
+            .timeline-item::before {
+                left: 5px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Animation on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Particle background animation */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="switchLanguage('es')">ES</button>
+    </div>
+
+    <!-- Header -->
     <header>
-                padding: 18px;
-                color: #ffffff;
-                background: linear-gradient(90deg, #355C7D 0%, #6C5B7D 100%);
-                border-radius: 12px;
-                box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
-        <div class="container">
-            <div id="branding">
-                <h1>Karen Vanessa Ruiz Medellín</h1>
-            </div>
+        <div class="nav-container">
+            <div class="logo">Karen V. Ruiz</div>
             <nav>
                 <ul>
-                    <li class="current"><a href="index.html">Home</a></li>
-                padding: 8px;
-                height: 32px;
-                width: 260px;
-                border-radius: 8px;
-                border: none;
-                font-size: 1rem;
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#cv">CV</a></li>
+                    <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
+                    <li><a href="#about" data-en="About" data-es="Acerca">About</a></li>
+                    <li><a href="#cv" data-en="Experience" data-es="Experiencia">Experience</a></li>
+                    <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="showcase">
-        <div class="container">
-            <h1>Welcome!</h1>
-            <p>Colombian Psychologist with experience in education and clinical fields.</p>
-                height: 40px;
-                background: linear-gradient(90deg, #6C5B7D 0%, #355C7D 100%);
-                border: none;
-                padding: 10px 28px;
-                color: #fff;
-                border-radius: 8px;
-                font-size: 1.1rem;
-                cursor: pointer;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 700;
-                box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
-                transition: background 0.3s ease;
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="particles"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="floating" data-en="Karen Vanessa Ruiz Medellín" data-es="Karen Vanessa Ruiz Medellín">Karen Vanessa Ruiz Medellín</h1>
+                <p class="subtitle" data-en="Colombian Psychologist specializing in Educational and Clinical Psychology" data-es="Psicóloga Colombiana especializada en Psicología Educativa y Clínica">Colombian Psychologist specializing in Educational and Clinical Psychology</p>
+                <a href="#about" class="cta-button" data-en="Learn More" data-es="Conoce Más">
+                    <span>Learn More</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
         </div>
     </section>
 
-                background: linear-gradient(90deg, #355C7D 0%, #6C5B7D 100%);
-    <section id="newsletter">
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="container">
-            <h1>Subscribe to my Newsletter</h1>
-                background-color: #fff;
-                border-radius: 16px;
-                box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
-            <form>
-                <input type="email" placeholder="Enter Email...">
-                <button type="submit" class="button_1">Subscribe</button>
-                background-color: #f4f4f4;
-                border-radius: 16px;
-                box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+            <div class="section-title fade-in">
+                <h2 data-en="About Me" data-es="Acerca de Mí">About Me</h2>
+                <p data-en="Passionate about education and mental health" data-es="Apasionada por la educación y la salud mental">Passionate about education and mental health</p>
+            </div>
+            <div class="about-content">
+                <div class="profile-card fade-in">
+                    <div class="profile-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Karen V. Ruiz</h3>
+                    <p data-en="Educational Psychologist" data-es="Psicóloga Educativa">Educational Psychologist</p>
+                    <div class="skills">
+                        <span class="skill-tag" data-en="Education" data-es="Educación">Education</span>
+                        <span class="skill-tag" data-en="Clinical Psychology" data-es="Psicología Clínica">Clinical Psychology</span>
+                        <span class="skill-tag" data-en="Child Development" data-es="Desarrollo Infantil">Child Development</span>
+                        <span class="skill-tag" data-en="Inclusion" data-es="Inclusión">Inclusion</span>
+                    </div>
+                </div>
+                <div class="about-text fade-in">
+                    <h3 data-en="Professional Excellence in Psychology" data-es="Excelencia Profesional en Psicología">Professional Excellence in Psychology</h3>
+                    <p data-en="Karen Vanessa Ruiz Medellín is a Colombian Psychologist with extensive professional experience in educational and clinical fields. She specializes in supporting children, adolescents, and their families through innovative and inclusive approaches." data-es="Karen Vanessa Ruiz Medellín es una psicóloga colombiana con amplia experiencia profesional en los campos educativo y clínico. Se especializa en apoyar a niños, adolescentes y sus familias a través de enfoques innovadores e inclusivos.">
+                        Karen Vanessa Ruiz Medellín is a Colombian Psychologist with extensive professional experience in educational and clinical fields. She specializes in supporting children, adolescents, and their families through innovative and inclusive approaches.
+                    </p>
+                    <p data-en="Known for her creativity, empathy, and adaptability, Karen excels at fostering inclusion and holistic development. Her work integrates modern educational technologies with traditional psychological practices to create meaningful learning experiences." data-es="Conocida por su creatividad, empatía y adaptabilidad, Karen sobresale en fomentar la inclusión y el desarrollo integral. Su trabajo integra tecnologías educativas modernas con prácticas psicológicas tradicionales para crear experiencias de aprendizaje significativas.">
+                        Known for her creativity, empathy, and adaptability, Karen excels at fostering inclusion and holistic development. Her work integrates modern educational technologies with traditional psychological practices to create meaningful learning experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="cv">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-en="Professional Journey" data-es="Trayectoria Profesional">Professional Journey</h2>
+                <p data-en="Education and experience that shape excellence" data-es="Educación y experiencia que forjan la excelencia">Education and experience that shape excellence</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - Present</div>
+                        <h3 class="timeline-title" data-en="Master's in Educational and Psychological Intervention" data-es="Maestría en Intervención Educativa y Psicológica">Master's in Educational and Psychological Intervention</h3>
+                        <p class="timeline-desc" data-en="University of Navarra, Spain - Advanced studies in educational psychology and intervention strategies." data-es="Universidad de Navarra, España - Estudios avanzados en psicología educativa y estrategias de intervención.">University of Navarra, Spain - Advanced studies in educational psychology and intervention strategies.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - 2024</div>
+                        <h3 class="timeline-title" data-en="English and Digital Language Learning Teacher" data-es="Profesora de Inglés y Aprendizaje Digital del Lenguaje">English and Digital Language Learning Teacher</h3>
+                        <p class="timeline-desc" data-en="ASPAEN Iragua y Kinabalu, Colombia - Designed innovative strategies combining English teaching with computational thinking for preschool and primary students." data-es="ASPAEN Iragua y Kinabalu, Colombia - Diseñó estrategias innovadoras combinando la enseñanza del inglés con el pensamiento computacional para estudiantes de preescolar y primaria.">ASPAEN Iragua y Kinabalu, Colombia - Designed innovative strategies combining English teaching with computational thinking for preschool and primary students.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - 2022</div>
+                        <h3 class="timeline-title" data-en="Teacher Assistant" data-es="Asistente de Profesora">Teacher Assistant</h3>
+                        <p class="timeline-desc" data-en="ASPAEN Iragua y Kinabalu, Colombia - Supported preschool students in daily activities while developing creative learning experiences." data-es="ASPAEN Iragua y Kinabalu, Colombia - Apoyó a estudiantes de preescolar en actividades diarias mientras desarrollaba experiencias de aprendizaje creativas.">ASPAEN Iragua y Kinabalu, Colombia - Supported preschool students in daily activities while developing creative learning experiences.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2016 - 2021</div>
+                        <h3 class="timeline-title" data-en="Bachelor's Degree in Psychology" data-es="Licenciatura en Psicología">Bachelor's Degree in Psychology</h3>
+                        <p class="timeline-desc" data-en="Universidad de La Sabana, Colombia - Comprehensive education in psychology with focus on educational and clinical applications." data-es="Universidad de La Sabana, Colombia - Educación integral en psicología con enfoque en aplicaciones educativas y clínicas.">Universidad de La Sabana, Colombia - Comprehensive education in psychology with focus on educational and clinical applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="contact" class="newsletter">
+        <div class="container">
+            <h2 data-en="Stay Connected" data-es="Mantente Conectado">Stay Connected</h2>
+            <p data-en="Subscribe to receive updates about educational psychology insights and professional developments" data-es="Suscríbete para recibir actualizaciones sobre perspectivas de psicología educativa y desarrollos profesionales">Subscribe to receive updates about educational psychology insights and professional developments</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email..." data-en-placeholder="Enter your email..." data-es-placeholder="Ingresa tu correo...">
+                <button type="submit" class="newsletter-btn" data-en="Subscribe" data-es="Suscribirse">Subscribe</button>
             </form>
         </div>
     </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-                margin-top: 20px;
-                padding: 18px;
-                background-color: #fff;
-                border-radius: 12px;
-                box-shadow: 0px 2px 12px rgba(44, 62, 80, 0.10);
-            <img src="assets/profile_image.jpg" alt="Profile Image" style="width: 150px; border-radius: 50%; float: left; margin-right: 20px;">
-            <i class="material-icons">face</i>
-            <p>
-                font-family: 'Montserrat', sans-serif;
-                Karen Vanessa Ruiz Medellín is a Colombian Psychologist with professional experience in the educational and clinical fields, particularly in teaching and supporting children, adolescents, and their families. She stands out for her creativity, empathy, adaptability, and ability to foster inclusion and holistic development.
-            </p>
-        </div>
-    </section>
-                <img src="assets/profile_image.jpg" alt="Profile Image" style="width: 150px; border-radius: 50%; box-shadow: 0 2px 12px rgba(44,62,80,0.12); float: left; margin-right: 24px; margin-bottom: 12px;">
-                <i class="material-icons" style="font-size: 2.2rem; color: #355C7D; vertical-align: middle; margin-right: 8px;">face</i>
-
-    <section id="cv">
-        <div class="container">
-            <h2>Curriculum Vitae</h2>
-            <h3>Academic Background</h3>
-            <ul>
-                padding: 24px;
-                margin-top: 32px;
-                color: #ffffff;
-                background: linear-gradient(90deg, #355C7D 0%, #6C5B7D 100%);
-                text-align: center;
-                border-radius: 0 0 16px 16px;
-                <li>Master’s in Educational and Psychological Intervention – University of Navarra, Spain (2024 – present)</li>
-                <li>Course in Good Teaching Practices – Universidad Internacional de la Rioja (2024)</li>
-                <li>Diploma in Universal Design for Learning (DUA) – Universidad de La Sabana (2021)</li>
-                <li>Diploma in Neuropsychology of Language and Learning Disorders – Universidad del Rosario (2020)</li>
-                <li>Diploma in Clinical and Health Psychology – Universidad de La Sabana (2020)</li>
-                <li>Bachelor’s Degree in Psychology – Universidad de La Sabana, Colombia (2016–2021)</li>
-            </ul>
-
-            <h3>Professional Experience</h3>
-            <ul>
-                <li>
-                    <strong>English and Digital Language Learning Teacher</strong> – ASPAEN Iragua y Kinabalu, Colombia (Aug 2022 – Jun 2024)
-                    <ul>
-                        <li>Designed and implemented strategies to teach English and computational thinking to preschool and primary students using programming platforms, online tools, and robots.</li>
-                        <li>Promoted communication skills, logical thinking, and inclusion.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Teacher Assistant</strong> – ASPAEN Iragua y Kinabalu, Colombia (Aug 2021 – Aug 2022)
-                    <ul>
-                        <li>Supported preschool students during daily school activities and developed creative learning activities.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Educational Psychology Intern</strong> – Colegio Nueva York, Colombia (Jan 2021 – Jun 2021)
-                    <ul>
-                        <li>Provided individual support for students with special educational needs.</li>
-                        <li>Designed prevention projects on bullying, sexual abuse, and substance use.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Tutoring Support</strong> – Tools Afterschool, Spain (Aug 2022 – Aug 2024)
-                    <ul>
-                        <li>Assisted children and adolescents with academic reinforcement and study habits through personalized sessions.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Co-teacher and Guidance Intern</strong> – Colegio Santa Teresa (Teresianas), Spain (Currently)
-                    <ul>
-                        <li>Supports students in the Inclusive Education Unit (UCE), providing individual and family counseling for secondary students.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
-        <p>Karen Vanessa Ruiz Medellín, Copyright &copy; 2024</p>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2024 Karen Vanessa Ruiz Medellín. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span></p>
+        </div>
     </footer>
+
+    <script>
+        // Language switching functionality
+        let currentLanguage = 'en';
+        
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update all translatable elements
+            document.querySelectorAll(`[data-${lang}]`).forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+            
+            // Update placeholders
+            document.querySelectorAll(`[data-${lang}-placeholder]`).forEach(element => {
+                element.placeholder = element.getAttribute(`data-${lang}-placeholder`);
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in, .timeline-item, .profile-card, .about-text, .section-title').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            if (email) {
+                // Simulate form submission
+                const btn = this.querySelector('button');
+                const originalText = btn.textContent;
+                btn.textContent = currentLanguage === 'en' ? 'Subscribed!' : '¡Suscrito!';
+                btn.style.background = '#4ade80';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                    this.querySelector('input').value = '';
+                }, 2000);
+            }
+        });
+
+        // Add hover effects to timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.querySelector('.timeline-content').style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.querySelector('.timeline-content').style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Initialize particles and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // Add stagger animation to skills
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach((tag, index) => {
+                tag.style.animationDelay = `${index * 0.1 + 0.5}s`;
+            });
+
+            // Initialize AOS-like animations for timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            element.innerHTML = '';
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Add glitch effect on hover for name
+        document.querySelector('.hero h1').addEventListener('mouseenter', function() {
+            this.style.animation = 'glitch 0.3s ease-in-out';
+            setTimeout(() => {
+                this.style.animation = 'floating 3s ease-in-out infinite';
+            }, 300);
+        });
+
+        // Add custom glitch animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes glitch {
+                0% { transform: translateX(0); }
+                10% { transform: translateX(-2px) skewX(-5deg); }
+                20% { transform: translateX(2px) skewX(5deg); }
+                30% { transform: translateX(-2px) skewX(-5deg); }
+                40% { transform: translateX(2px) skewX(5deg); }
+                50% { transform: translateX(-2px) skewX(-5deg); }
+                60% { transform: translateX(2px) skewX(5deg); }
+                70% { transform: translateX(-2px) skewX(-5deg); }
+                80% { transform: translateX(2px) skewX(5deg); }
+                90% { transform: translateX(-2px) skewX(-5deg); }
+                100% { transform: translateX(0); }
+            }
+
+            .profile-card:hover {
+                transform: translateY(-10px) rotateY(5deg);
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+
+            .cta-button {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .cta-button::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: left 0.6s;
+            }
+
+            .cta-button:hover::before {
+                left: 100%;
+            }
+
+            .timeline-content {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .timeline-content::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+                transition: width 0.6s ease;
+                z-index: 1;
+            }
+
+            .timeline-content:hover::before {
+                width: 100%;
+            }
+
+            .social-link {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .social-link::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                transition: all 0.6s ease;
+            }
+
+            .social-link:hover::before {
+                width: 60px;
+                height: 60px;
+            }
+
+            /* Mobile menu for small screens */
+            @media (max-width: 640px) {
+                nav ul {
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    background: rgba(255, 255, 255, 0.98);
+                    backdrop-filter: blur(20px);
+                    padding: 20px;
+                    transform: translateY(-100%);
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.3s ease;
+                }
+
+                nav ul.active {
+                    transform: translateY(0);
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .menu-toggle {
+                    display: block;
+                    background: none;
+                    border: none;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                    color: var(--text-dark);
+                }
+
+                @media (min-width: 641px) {
+                    .menu-toggle {
+                        display: none;
+                    }
+                }
+            }
+
+            /* Enhanced hover effects for better user experience */
+            .skill-tag:hover {
+                transform: scale(1.05) translateY(-2px);
+                box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            }
+
+            .newsletter-btn:hover {
+                background: var(--gradient-1);
+                color: white;
+            }
+
+            /* Loading animation */
+            .loading {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--gradient-1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                opacity: 1;
+                visibility: visible;
+                transition: all 0.8s ease;
+            }
+
+            .loading.fade-out {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .spinner {
+                width: 50px;
+                height: 50px;
+                border: 3px solid rgba(255, 255, 255, 0.3);
+                border-top: 3px solid white;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add loading screen
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create loading screen
+            const loader = document.createElement('div');
+            loader.className = 'loading';
+            loader.innerHTML = '<div class="spinner"></div>';
+            document.body.prepend(loader);
+
+            // Hide loading screen after page loads
+            window.addEventListener('load', function() {
+                setTimeout(() => {
+                    loader.classList.add('fade-out');
+                    setTimeout(() => {
+                        loader.remove();
+                    }, 800);
+                }, 500);
+            });
+        });
+
+        // Add mobile menu toggle
+        if (window.innerWidth <= 640) {
+            const nav = document.querySelector('nav');
+            const menuToggle = document.createElement('button');
+            menuToggle.className = 'menu-toggle';
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            
+            nav.parentNode.insertBefore(menuToggle, nav);
+            
+            menuToggle.addEventListener('click', function() {
+                const ul = nav.querySelector('ul');
+                ul.classList.toggle('active');
+                
+                // Toggle icon
+                const icon = this.querySelector('i');
+                if (ul.classList.contains('active')) {
+                    icon.className = 'fas fa-times';
+                } else {
+                    icon.className = 'fas fa-bars';
+                }
+            });
+        }
+
+        // Enhanced scroll animations
+        let ticking = false;
+        
+        function updateOnScroll() {
+            const scrollTop = window.pageYOffset;
+            
+            // Parallax effects
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                const rate = scrollTop * 0.3;
+                hero.style.backgroundPosition = `center ${rate}px`;
+            }
+            
+            // Progress bar (optional)
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateOnScroll);
+                ticking = true;
+            }
+        });
+
+    </script>
 </body>
 </html>
-```
-
