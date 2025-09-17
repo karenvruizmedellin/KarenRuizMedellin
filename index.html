@@ -636,14 +636,130 @@
         <div class="particles"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <h1 class="floating" data-en="Karen Vanessa Ruiz Medellín" data-es="Karen Vanessa Ruiz Medellín">Karen Vanessa Ruiz Medellín</h1>
-                <p class="subtitle" data-en="Colombian Psychologist specializing in Educational and Clinical Psychology" data-es="Psicóloga Colombiana especializada en Psicología Educativa y Clínica">Colombian Psychologist specializing in Educational and Clinical Psychology</p>
-                <a href="#about" class="cta-button" data-en="Learn More" data-es="Conoce Más">
+                <h1 class="floating animated-gradient" data-en="Karen Vanessa Ruiz" data-es="Karen Vanessa Ruiz">
+                    <span class="typewriter">Karen Vanessa Ruiz</span>
+                </h1>
+                <p class="subtitle fade-in" data-en="Colombian Psychologist specializing in Educational and Clinical Psychology" data-es="Psicóloga Colombiana especializada en Psicología Educativa y Clínica">
+                    Colombian Psychologist specializing in Educational and Clinical Psychology
+                </p>
+                <a href="#about" class="cta-button pulse" data-en="Learn More" data-es="Conoce Más">
                     <span>Learn More</span>
-                    <i class="fas fa-arrow-down"></i>
+                    <i class="fas fa-arrow-down bounce"></i>
                 </a>
+                <div class="hero-icons">
+                    <span class="hero-icon" title="Education"><i class="fas fa-graduation-cap"></i></span>
+                    <span class="hero-icon" title="Clinical"><i class="fas fa-user-md"></i></span>
+                    <span class="hero-icon" title="Child Development"><i class="fas fa-child"></i></span>
+                    <span class="hero-icon" title="Inclusion"><i class="fas fa-universal-access"></i></span>
+                </div>
             </div>
         </div>
+        <style>
+            .animated-gradient {
+                background: linear-gradient(90deg, #667eea, #f093fb, #764ba2, #4facfe, #00f2fe);
+                background-size: 400% 400%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                white-space: normal;
+                word-break: break-word;
+            }
+            @keyframes gradientMove {
+                0%,100% {background-position:0% 50%;}
+                50% {background-position:100% 50%;}
+            }
+            .typewriter {
+                display: inline-block;
+                overflow: visible;
+                border-right: .15em solid #fff;
+                white-space: nowrap;
+                animation: typing 2.5s steps(30, end), blink-caret .75s step-end infinite;
+                max-width: 100vw;
+            }
+            @keyframes typing {
+                from { width: 0 }
+                to { width: 100% }
+            }
+            @keyframes blink-caret {
+                from, to { border-color: transparent }
+                50% { border-color: #fff }
+            }
+            .pulse {
+                animation: pulseAnim 1.5s infinite;
+            }
+            @keyframes pulseAnim {
+                0% { box-shadow: 0 0 0 0 rgba(102,126,234,0.4);}
+                70% { box-shadow: 0 0 0 10px rgba(102,126,234,0);}
+                100% { box-shadow: 0 0 0 0 rgba(102,126,234,0);}
+            }
+            .bounce {
+                animation: bounceAnim 1.2s infinite;
+            }
+            @keyframes bounceAnim {
+                0%, 100% { transform: translateY(0);}
+                50% { transform: translateY(10px);}
+            }
+            .hero-icons {
+                margin-top: 35px;
+                display: flex;
+                gap: 25px;
+                justify-content: flex-start;
+                align-items: center;
+                opacity: 0;
+                animation: fadeInIcons 1.2s 1.2s forwards;
+            }
+            @keyframes fadeInIcons {
+                to { opacity: 1; }
+            }
+            .hero-icon {
+                background: var(--gradient-3);
+                color: white;
+                border-radius: 50%;
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                box-shadow: 0 4px 16px rgba(102,126,234,0.15);
+                transition: transform 0.3s, box-shadow 0.3s;
+                cursor: pointer;
+                position: relative;
+            }
+            .hero-icon:hover {
+                transform: scale(1.15) rotate(-8deg);
+                box-shadow: 0 8px 24px rgba(102,126,234,0.25);
+            }
+            @media (max-width: 600px) {
+                .hero h1 {
+                    font-size: 2.2rem !important;
+                    word-break: break-word;
+                }
+                .typewriter {
+                    font-size: 1.2rem !important;
+                    white-space: normal;
+                }
+            }
+        </style>
+        <script>
+            // Typewriter effect for hero name
+            document.addEventListener('DOMContentLoaded', function() {
+                const tw = document.querySelector('.typewriter');
+                if (tw) {
+                    const text = tw.getAttribute('data-en') || tw.textContent;
+                    tw.textContent = '';
+                    let i = 0;
+                    function type() {
+                        if (i < text.length) {
+                            tw.textContent += text.charAt(i);
+                            i++;
+                            setTimeout(type, 70);
+                        }
+                    }
+                    type();
+                }
+            });
+        </script>
     </section>
 
     <!-- About Section -->
