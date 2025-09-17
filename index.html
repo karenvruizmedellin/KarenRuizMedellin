@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen Vanessa Ruiz Medellín - Psychologist</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to right, #3498db, #2980b9); /* Modern blue gradient */
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #2980b9 3px solid;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            margin: 0;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header .highlight, header .current a {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: #f39c12;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        #showcase {
+            min-height: 400px;
+            background: url('background.jpg') no-repeat center center/cover;
+            text-align: center;
+            color: #ffffff;
+            padding: 50px 0;
+        }
+
+        #showcase h1 {
+            margin-top: 50px;
+            font-size: 55px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        #showcase p {
+            font-size: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        #newsletter {
+            padding: 15px;
+            color: #ffffff;
+            background: #355C7D;
+        }
+
+        #newsletter h1 {
+            float: left;
+        }
+
+        #newsletter form {
+            float: right;
+            margin-top: 15px;
+        }
+
+        #newsletter input[type="email"] {
+            padding: 4px;
+            height: 25px;
+            width: 250px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .button_1{
+            height: 40px; /* Slightly taller */
+            background: #3498db; /* A more modern button color */
+            border: none;
+            padding: 10px 20px; /* Adjust padding for better spacing */
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px; /* Slightly larger font size */
+            cursor: pointer; /* Indicate it's clickable */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+        .button_1:hover {
+            background-color: #2980b9; /* Darker shade on hover */
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        #about {
+            background-color: #fff;
+        }
+
+        #cv {
+            background-color: #f4f4f4;
+        }
+
+        .box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .box h3 {
+            text-align: center;
+        }
+
+        @media(max-width: 768px) {
+            header #branding,
+            header nav,
+            header nav li,
+            #newsletter h1,
+            #newsletter form,
+            .box {
+                float: none;
+                text-align: center;
+                width: 100%;
+            }
+
+            header {
+                padding-bottom: 50px;
+            }
+
+            #showcase h1 {
+                margin-top: 40px;
+            }
+
+            #newsletter button {
+                display: block;
+                width: 100%;
+            }
+
+            #newsletter form input[type="email"] {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #1E3D59;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>Karen Vanessa Ruiz Medellín</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#cv">CV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <h1>Welcome!</h1>
+            <p>Colombian Psychologist with experience in education and clinical fields.</p>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <div class="container">
+            <h1>Subscribe to my Newsletter</h1>
+            <form>
+                <input type="email" placeholder="Enter Email...">
+                <button type="submit" class="button_1">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                Karen Vanessa Ruiz Medellín is a Colombian Psychologist with professional experience in the educational and clinical fields, particularly in teaching and supporting children, adolescents, and their families. She stands out for her creativity, empathy, adaptability, and ability to foster inclusion and holistic development.
+            </p>
+        </div>
+    </section>
+
+    <section id="cv">
+        <div class="container">
+            <h2>Curriculum Vitae</h2>
+            <h3>Academic Background</h3>
+            <ul>
+                <li>Master’s in Educational and Psychological Intervention – University of Navarra, Spain (2024 – present)</li>
+                <li>Course in Good Teaching Practices – Universidad Internacional de la Rioja (2024)</li>
+                <li>Diploma in Universal Design for Learning (DUA) – Universidad de La Sabana (2021)</li>
+                <li>Diploma in Neuropsychology of Language and Learning Disorders – Universidad del Rosario (2020)</li>
+                <li>Diploma in Clinical and Health Psychology – Universidad de La Sabana (2020)</li>
+                <li>Bachelor’s Degree in Psychology – Universidad de La Sabana, Colombia (2016–2021)</li>
+            </ul>
+
+            <h3>Professional Experience</h3>
+            <ul>
+                <li>
+                    <strong>English and Digital Language Learning Teacher</strong> – ASPAEN Iragua y Kinabalu, Colombia (Aug 2022 – Jun 2024)
+                    <ul>
+                        <li>Designed and implemented strategies to teach English and computational thinking to preschool and primary students using programming platforms, online tools, and robots.</li>
+                        <li>Promoted communication skills, logical thinking, and inclusion.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Teacher Assistant</strong> – ASPAEN Iragua y Kinabalu, Colombia (Aug 2021 – Aug 2022)
+                    <ul>
+                        <li>Supported preschool students during daily school activities and developed creative learning activities.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Educational Psychology Intern</strong> – Colegio Nueva York, Colombia (Jan 2021 – Jun 2021)
+                    <ul>
+                        <li>Provided individual support for students with special educational needs.</li>
+                        <li>Designed prevention projects on bullying, sexual abuse, and substance use.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Tutoring Support</strong> – Tools Afterschool, Spain (Aug 2022 – Aug 2024)
+                    <ul>
+                        <li>Assisted children and adolescents with academic reinforcement and study habits through personalized sessions.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Co-teacher and Guidance Intern</strong> – Colegio Santa Teresa (Teresianas), Spain (Currently)
+                    <ul>
+                        <li>Supports students in the Inclusive Education Unit (UCE), providing individual and family counseling for secondary students.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>Karen Vanessa Ruiz Medellín, Copyright &copy; 2024</p>
+    </footer>
+</body>
+</html>
+```
